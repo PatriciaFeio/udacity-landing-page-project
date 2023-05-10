@@ -23,7 +23,8 @@
  * 
 */
 
-console.log('hey');
+const navbarList = document.getElementById('navbar__list');
+const navbarListItems = ['Section 1', 'Section 2', 'Section 3', 'Section 4'];
 
 
 /**
@@ -33,7 +34,6 @@ console.log('hey');
 */
 
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -41,6 +41,20 @@ console.log('hey');
 */
 
 // build the nav
+
+
+//createNavBar();
+function createNavBar() {
+    
+    for (const item of navbarListItems) {
+        const navbarListItem = document.createElement('li');
+        navbarListItem.classList.add('menu__link');
+        navbarListItem.innerHTML += item;      
+        navbarList.append(navbarListItem);
+    }
+}
+
+createNavBar();
 
 
 // Add class 'active' to section when near top of viewport
