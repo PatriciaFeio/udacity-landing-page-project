@@ -79,6 +79,7 @@ section {
   margin: 0;
   display: flex;
   justify-content: flex-end;
+  list-style-type: none;
 }
 
 .navbar__menu li {
