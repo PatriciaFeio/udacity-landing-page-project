@@ -24,7 +24,7 @@
 */
 
 const navbarList = document.getElementById('navbar__list');
-const navbarListItems = ['Section 1', 'Section 2', 'Section 3', 'Section 4'];
+const pageSections = document.querySelectorAll('section');
 
 
 /**
@@ -45,22 +45,41 @@ const navbarListItems = ['Section 1', 'Section 2', 'Section 3', 'Section 4'];
 
 //createNavBar();
 function createNavBar() {
-    
-    for (const item of navbarListItems) {
-        const navbarListItem = document.createElement('li');
-        navbarListItem.classList.add('menu__link');
-        navbarListItem.innerHTML += item;      
-        navbarList.append(navbarListItem);
-    }
-}
 
-createNavBar();
+    for (const data of pageSections) {
+        //console.log(data.id)
+        const dataNav = data.dataset.nav;
+        const navbarListItem = document.createElement('li');
+        navbarListItem.innerHTML += `<a class='menu__link' href='#${data.id}'>${dataNav}</a>`;
+        navbarList.appendChild(navbarListItem);
+    }
+};
 
 
 // Add class 'active' to section when near top of viewport
+function addActiveClass() {
+
+    // Get current scroll position
+    let scrollY = window.pageYOffset;
+
+    // Get height of each section
+    for (const section of pageSections) {
+        let sectionTop = (section.getBoundingClientRect().top + window.pageYOffset) - 100;
+        let sectionHeight = section.getBoundingClientRect().height;
+
+     // Add active class to the section that enters the space where current scroll position is
+     // Remove active class otherwise
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            section.classList.add('your-active-class');
+        } else {
+            section.classList.remove('your-active-class');
+        }
+    }
+};
 
 
 // Scroll to anchor ID using scrollTO event
+
 
 
 /**
@@ -69,9 +88,10 @@ createNavBar();
  * 
 */
 
-// Build menu 
+// Build menu
+createNavBar();
 
 // Scroll to section on link click
 
 // Set sections as active
-
+window.addEventListener('scroll', addActiveClass);
