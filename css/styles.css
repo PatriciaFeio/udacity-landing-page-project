@@ -11,24 +11,19 @@
 /* ---- Base Rules ---- */
 body {
   background: rgb(136, 203, 171);
-  /* background: linear-gradient(
-    0deg,
-    rgba(201, 200, 170, 1) 0%,
-    rgba(254, 67, 98, 1) 100%
-  ); */
   background: linear-gradient(
     0deg,
     rgba(201, 200, 170, 1) 0%,
     rgba(132, 175, 155, 1) 100%
   );
-  /*   background: linear-gradient(
-    0deg,
-    rgba(136, 203, 171, 1) 0%,
-    rgba(0, 13, 60, 1) 100%
-  ); */
   margin: 0;
   font-family: "Merriweather", serif;
   color: #fff;
+}
+
+li,
+button {
+  cursor: pointer;
 }
 
 /* Typeography General*/
@@ -80,10 +75,6 @@ section {
   display: flex;
   justify-content: flex-end;
   list-style-type: none;
-}
-
-.navbar__menu li {
-  cursor: pointer;
 }
 
 .navbar__menu .menu__link {
@@ -242,4 +233,26 @@ section.your-active-class .landing__container::after {
   to {
     transform: rotate(360deg) translate(-1em) rotate(-360deg);
   }
+}
+
+/* Scroll to top button */
+#scroll-to-top {
+  position: fixed;
+  bottom: 170px;
+  right: 20px;
+  padding: 6px 14px;
+  font-size: 20px;
+  background-color: #ffccad;
+  border: 2px solid #fe4362;
+  border-radius: 10px;
+}
+
+#scroll-to-top:hover {
+  padding: 4px 12px;
+  background-color: #ffe0cd;
+  border: 4px solid #42574d;
+}
+
+#scroll-to-top:focus {
+  outline: 2px dashed #fe4362;
 }
