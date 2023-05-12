@@ -36,12 +36,12 @@ const scrollToTopBtn = document.getElementById('scroll-to-top');
 
 
 // Scroll to top of the page
-function scrollToTop() {
+const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     })
-};
+}
 
 /**
  * End Helper Functions
@@ -50,59 +50,58 @@ function scrollToTop() {
 */
 
 // build the navbar items from each section's data-nav attribute
-function buildNavBar() {
-    for (const data of pageSections) {
+const buildNavBar = ()=> {
+
+    pageSections.forEach(function (data) {
         const navbarListItem = document.createElement('li');
         const sectionId = data.getAttribute('id');
         const listItemInnerText = data.getAttribute('data-nav');
         navbarListItem.innerHTML += `<a class='menu__link' data-section-id='${sectionId}' href='#'>${listItemInnerText}</a>`;
         navbarList.appendChild(navbarListItem);
-    }
-};
+    })
+}
 
 // Scroll to section when clicking the related navbar item
-function scrollToSection() {
+const scrollToSection = () => {
     const navbarListItem = document.querySelectorAll('.menu__link');
-    for (const item of navbarListItem) {
+
+    navbarListItem.forEach(function (item) {
         item.addEventListener('click', e => {
             e.preventDefault();
             const sectionToScrollId = item.getAttribute('data-section-id');
             const sectionToScrollTo = document.getElementById(sectionToScrollId);
-            sectionToScrollTo.scrollIntoView({ behavior: "smooth" });
+            sectionToScrollTo.scrollIntoView({ behavior: 'smooth' });
         })
-    };
-};
+    })
+}
 
 // Add class 'active' to section and to navbar item when section is near top of viewport
-function addActiveClass() {
+const addActiveClass = () => {
     // Get current scroll position
-    let scrollY = window.pageYOffset; 
+    const scrollY = window.pageYOffset; 
     // Get height of each section
-    for (const section of pageSections) {
-        let sectionTop = (section.getBoundingClientRect().top + window.pageYOffset) - 100;
-        let sectionHeight = section.getBoundingClientRect().height;
-        let sectionId = section.id
+    pageSections.forEach(function (section) {
+        const sectionTop = (section.getBoundingClientRect().top + window.pageYOffset) - 100;
+        const sectionHeight = section.getBoundingClientRect().height;
+        const sectionId = section.id;
 
      // Add active class to navbar item and the section that enters the space where current scroll position is
      // Remove active class otherwise
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             section.classList.add('active');
-            document.querySelector(`[data-section-id="${sectionId}"]`).classList.add('active');
+            document.querySelector(`[data-section-id='${sectionId}']`).classList.add('active');
         } else {
             section.classList.remove('active');
-            document.querySelector(`[data-section-id="${sectionId}"]`).classList.remove('active');
+            document.querySelector(`[data-section-id='${sectionId}']`).classList.remove('active');
         }
-    }
-};
+    })
+}
 
 // Add scroll to top arrow button
-function addScrollToTopButton() {
-    if (window.scrollY > window.innerHeight) {
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-}
+const addScrollToTopButton = () =>  
+window.scrollY > window.innerHeight ? 
+scrollToTopBtn.style.display = 'block' : 
+scrollToTopBtn.style.display = 'none';
 
 /**
  * End Main Functions
