@@ -54,7 +54,7 @@ p {
 
 /* ---- Layout Rules ---- */
 main {
-  margin: 10vh 1em 10vh;
+  margin: 12vh 1em 10vh;
 }
 
 .main-hero {
@@ -73,6 +73,7 @@ section {
 .navbar__menu ul {
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   list-style-type: none;
 }
@@ -88,6 +89,12 @@ section {
 .navbar__menu .menu__link:hover {
   background: #333;
   color: #fff;
+  transition: ease 0.3s all;
+}
+
+.navbar__menu .menu__link.active {
+  border-bottom: 0.3em solid #333;
+  padding-bottom: 0.75em;
   transition: ease 0.3s all;
 }
 
@@ -206,7 +213,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-.your-active-class {
+section.active {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
@@ -215,12 +222,12 @@ section:nth-of-type(3n + 1) .landing__container::after {
   );
 }
 
-section.your-active-class .landing__container::before {
+section.active .landing__container::before {
   opacity: 1;
   animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active .landing__container::after {
   opacity: 1;
   animation: rotate 5s linear 0s infinite forwards reverse;
 }
@@ -245,6 +252,7 @@ section.your-active-class .landing__container::after {
   background-color: #ffccad;
   border: 2px solid #fe4362;
   border-radius: 10px;
+  display: none;
 }
 
 #scroll-to-top:hover {
