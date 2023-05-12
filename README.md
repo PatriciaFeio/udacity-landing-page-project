@@ -1,13 +1,28 @@
 # Landing Page Project
 
-## Table of Contents
+# Demo
 
-* [Instructions](#instructions)
+A demo of the project is available [here]().
 
-## Instructions
+# Introduction
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is the second mandatory project for the **Front End Developer Nanodegree Program** sponsored by the **Bertelsmann Next Generation Tech Booster Scholarship Program**.
 
-To get started, open `js/app.js` and start building out the app's functionality
+The aim of this project is to build a multi-section landing page where the user can navigate through each section using the navigation bar on the top.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+# Project Description
+
+This project was developed under the **JavaScript & The DOM** part of the **Front End Developer Nanodegree**. The purpose was to dynamically add content to the navigation menu and to improve the user experience differentiating in some way the section actively being viewed. Also, the item clicked on the navigation bar should smooth scroll the user to the appropriate section, instead of giving the default jump.
+
+# Installation
+
+Installation is not required. The project can be cloned from [here](https://github.com/PatriciaFeio/udacity-landing-page-project).
+
+# Usage
+
+[(Back to top)](#table-of-contents)
+
+# Development
+
+[(Back to top)](#table-of-contents)
+
