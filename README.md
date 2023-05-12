@@ -20,9 +20,6 @@ Installation is not required. The project can be cloned from [here](https://gith
 
 # Usage
 
-[(Back to top)](#table-of-contents)
-
 # Development
 
-[(Back to top)](#table-of-contents)
 
