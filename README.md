@@ -12,7 +12,7 @@ The aim of this project is to build a multi-section landing page where the user 
 
 # Project Description
 
-This project was developed under the **JavaScript & The DOM** part of the **Front End Developer Nanodegree**. The purpose was to dynamically add content to the navigation menu and to improve the user experience differentiating in some way the section actively being viewed. Also, the item clicked on the navigation bar should smooth scroll the user to the appropriate section, instead of giving the default jump.
+This project was developed under the **JavaScript & The DOM** part of the **Front End Developer Nanodegree**. The purpose was to dynamically add content to the navigation menu and to improve usability.
 
 # Installation
 
@@ -20,6 +20,14 @@ Installation is not required. The project can be cloned from [here](https://gith
 
 # Usage
 
+While the user scrolls through the page, the section that is being viewed and the corresponding navigation menu item are highlighted in some way.
+
+When the user clicks a navigation menu item, the link scrolls smoothly to the appropriate section.
+
+A scroll to top button is visible when the user scrolls below the fold of the page.
+
+The fixed navigation bar is hidden while the user is not scrolling.
+
 # Development
 
-
+A started code was provided with a static, non-interactive version of the project. The aim was to develop all the JavaScript part.
