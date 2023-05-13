@@ -2,7 +2,7 @@
 
 # Demo
 
-A demo of the project is available [here]().
+A demo of the project is available [here](https://patriciafeio.github.io/udacity-landing-page-project/).
 
 # Introduction
 
