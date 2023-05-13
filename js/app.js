@@ -23,11 +23,12 @@
  * 
 */
 
+const pageNavHeader = document.querySelector('.page__header');
 const navbar = document.querySelector('.navbar__menu');
 const navbarList = document.getElementById('navbar__list');
 const pageSections = document.querySelectorAll('section');
 const scrollToTopBtn = document.getElementById('scroll-to-top');
-
+let timer = null;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -49,9 +50,8 @@ const scrollToTop = () => {
  * 
 */
 
-// build the navbar items from each section's data-nav attribute
+// Build the navbar items from each section's data-nav attribute
 const buildNavBar = ()=> {
-
     pageSections.forEach(function (data) {
         const navbarListItem = document.createElement('li');
         const sectionId = data.getAttribute('id');
@@ -59,12 +59,11 @@ const buildNavBar = ()=> {
         navbarListItem.innerHTML += `<a class='menu__link' data-section-id='${sectionId}' href='#'>${listItemInnerText}</a>`;
         navbarList.appendChild(navbarListItem);
     })
-}
+};
 
 // Scroll to section when clicking the related navbar item
 const scrollToSection = () => {
     const navbarListItem = document.querySelectorAll('.menu__link');
-
     navbarListItem.forEach(function (item) {
         item.addEventListener('click', e => {
             e.preventDefault();
@@ -73,7 +72,7 @@ const scrollToSection = () => {
             sectionToScrollTo.scrollIntoView({ behavior: 'smooth' });
         })
     })
-}
+};
 
 // Add class 'active' to section and to navbar item when section is near top of viewport
 const addActiveClass = () => {
@@ -95,13 +94,30 @@ const addActiveClass = () => {
             document.querySelector(`[data-section-id='${sectionId}']`).classList.remove('active');
         }
     })
-}
+};
 
 // Add scroll to top arrow button
 const addScrollToTopButton = () =>  
 window.scrollY > window.innerHeight ? 
 scrollToTopBtn.style.display = 'block' : 
 scrollToTopBtn.style.display = 'none';
+
+// Hide navbar when user is no longer scrolling
+const hideNavbarNoScroll = () => {
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset; 
+        if (timer !== null) {
+            clearTimeout(timer);
+            pageNavHeader.style.top = '0';
+        }
+        timer = setTimeout(() => {
+            if (scrollY !== 0) {
+                pageNavHeader.style.top = '-50px';
+            }
+        }, 2000);
+    });
+}
+
 
 /**
  * End Main Functions
@@ -123,3 +139,6 @@ document.addEventListener('scroll', addScrollToTopButton);
 
 // Add click event to scroll to top arrow button
 scrollToTopBtn.addEventListener('click', scrollToTop);
+
+// Hide navbar when user is no longer scrolling
+hideNavbarNoScroll();
