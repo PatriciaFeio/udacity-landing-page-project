@@ -30,4 +30,4 @@ The fixed navigation bar is hidden while the user is not scrolling.
 
 # Development
 
-A started code was provided with a static, non-interactive version of the project. The aim was to develop all the JavaScript part.
+A started code was provided [here](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page) with a static, non-interactive version of the project. The aim was to develop all the JavaScript part.
